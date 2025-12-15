@@ -1,19 +1,15 @@
-/* --- 1. Подключение шрифтов через @import --- */
-/* Montserrat для основного текста */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-/* Ubuntu для заголовков */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
-
-/* --- 2. Подключение Remix Icon (только CSS-файл) --- */
+/* --- 1. Подключение шрифтов и иконок --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Ubuntu:wght@700&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css');
 
-/* --- CSS-переменные для легкой смены цветов --- */
+/* --- 2. CSS-переменные --- */
 :root {
     --color-primary: #538bff; /* Синий */
-    --color-accent: #ff696a; /* Красный акцент */
+    --color-accent: #ff696a; /* Красный/Розовый акцент */
     --color-text: #1A202C; /* Темный текст */
-    --color-light-bg: #f5f8fa; /* Очень светлый фон для кнопок */
-    --border-radius: 8px;
+    --color-light-bg: #f5f8fa; /* Очень светлый фон */
+    --color-hot-pink: #FF00FF; /* Используем яркий розовый для акцентов */
+    --border-radius: 16px; /* Более крупные скругления */
 }
 
 /* --- Общие сбросы и типографика --- */
@@ -24,118 +20,151 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Основной текст */
+    font-family: 'Montserrat', sans-serif;
     color: var(--color-text);
     line-height: 1.6;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Белый фон, много воздуха */
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 900px; /* Ограничение ширины контента */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* --- НАВИГАЦИЯ --- */
+.navbar {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-light-bg);
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text);
+    opacity: 0.7;
+    margin-left: 30px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+.nav-cta {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-cta:hover {
+    background-color: #4a7ddb;
+    transform: translateY(-1px);
+}
+
 /* --- HERO SECTION --- */
 .hero-section {
-    padding: 80px 0; /* Много воздуха */
-    text-align: center;
+    padding: 80px 0 100px 0;
 }
 
-/* 1. Надзаголовок */
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Контент слева, Графика справа */
+    gap: 50px;
+    align-items: center;
+    text-align: left; /* Контент слева */
+}
+
+/* HERO CONTENT (Левая колонка) */
 .pre-header {
-    font-size: 16px;
-    font-weight: 500;
-    opacity: 0.7; /* Спокойный, не кричащий текст */
-    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-accent);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
 }
 
-/* 2. Главный заголовок (H1) */
 .main-heading {
     font-family: 'Ubuntu', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
+    font-size: 60px;
+    font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--color-text);
 }
 
 .main-heading .sub-line {
     display: block;
-    font-size: 28px;
-    font-weight: 400; /* Более легкий вес для подстроки */
+    font-size: 20px;
+    font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     color: var(--color-primary);
     margin-top: 15px;
 }
 
-/* 3. Подзаголовок (H2 / lead-текст) */
 .lead-text {
-    font-size: 24px;
-    font-weight: 300; /* Более легкий, чтобы "снять вину" */
-    line-height: 1.4;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    opacity: 0.8;
 }
 
 .accent-phrase {
-    font-weight: 600;
-    color: var(--color-accent); /* Выделение акцентным цветом */
-    display: inline-block;
-    padding-bottom: 2px;
-    /* Базовый стиль для анимации */
-    transition: background-size 0.5s ease-out;
-    background-image: linear-gradient(to right, var(--color-accent), var(--color-accent));
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: 0% 2px; /* Изначально линия невидима */
+    font-weight: 700;
+    color: var(--color-accent);
+    transition: color 0.5s;
+    cursor: default;
 }
 
-/* 4. Пояснение */
 .explanation-block p {
-    font-size: 18px;
-    margin: 15px auto;
-    max-width: 750px;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    max-width: 500px;
 }
 
-/* 5. Маркеры ценности */
 .value-markers {
     list-style: none;
     padding: 0;
-    margin: 40px auto;
-    max-width: 500px;
-    text-align: left;
+    margin: 30px 0;
 }
 
 .value-markers li {
-    font-size: 18px;
-    line-height: 2.5;
-    transition: opacity 0.5s ease;
-    /* Настройка для JS-анимации */
+    font-size: 16px;
+    line-height: 2;
+    transition: opacity 0.5s ease, transform 0.5s ease;
     opacity: 0;
     transform: translateY(10px);
 }
 
-/* Использование иконок Remix Icon */
-.value-markers li::before {
-    content: '\ea38'; /* Пример: иконка check-line (ее код) */
-    font-family: 'remixicon' !important; /* Указываем, что это шрифт иконок */
-    font-style: normal;
-    font-size: 18px;
+.value-markers li i {
     color: var(--color-primary);
     margin-right: 10px;
-}
-
-.value-markers li::before {
-    content: '\ea38'; 
-    font-family: 'remixicon' !important; 
-    font-style: normal;
     font-size: 18px;
-    color: var(--color-primary);
-    margin-right: 10px;
-    display: inline-block;
-    width: 20px;
 }
 
 .key-value strong {
@@ -143,42 +172,40 @@ body {
     font-weight: 700;
 }
 
-/* 6. Цена + CTA */
+/* CTA BLOCK */
 .cta-block {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .price {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 20px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .price-value {
-    font-weight: 700;
+    font-weight: 800;
     color: var(--color-text);
 }
 
 .button-group {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
 }
 
 .cta-button {
-    display: inline-block;
-    padding: 16px 32px;
+    padding: 14px 28px;
     border-radius: var(--border-radius);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-    border: none;
-    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-/* Основная кнопка (Войти в клуб) */
 .cta-button.primary {
     background-color: var(--color-primary);
     color: white;
@@ -186,41 +213,164 @@ body {
 
 .cta-button.primary:hover {
     background-color: #4a7ddb;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(83, 139, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(83, 139, 255, 0.3);
 }
 
-/* Вторичная кнопка (Посмотреть, как всё устроено) - не кричащая */
 .cta-button.secondary {
-    background-color: var(--color-light-bg);
+    background-color: white;
     color: var(--color-text);
     border: 1px solid rgba(26, 32, 44, 0.1);
 }
 
 .cta-button.secondary:hover {
-    background-color: #e8ecf0;
-    transform: translateY(-1px);
+    transform: scale(1.05);
+}
+
+/* --- HERO IMAGE BLOCK (Правая колонка с графикой) --- */
+.hero-image-block {
+    position: relative;
+    height: 450px; /* Фиксированная высота для контейнера графики */
+}
+
+/* Имитация контура (аналог SVG-линии) */
+.graphic-outline {
+    position: absolute;
+    width: 80%;
+    height: 90%;
+    border: 2px solid var(--color-primary);
+    border-radius: 40px;
+    top: 5%;
+    left: 10%;
+    opacity: 0.3;
+}
+
+/* Имитация человека за компьютером (просто абстрактная фигура) */
+.person-placeholder {
+    position: absolute;
+    width: 70%;
+    height: 80%;
+    background-color: var(--color-light-bg);
+    border-radius: 20px;
+    bottom: 0;
+    left: 15%;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Розовый блок "Доверие" */
+.trusted-by-box {
+    position: absolute;
+    width: 180px;
+    padding: 20px;
+    background-color: var(--color-accent); /* Используем яркий акцентный цвет */
+    border-radius: var(--border-radius);
+    right: 5%;
+    bottom: 5%;
+    z-index: 5;
+    color: white;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(255, 105, 106, 0.4);
+}
+
+.trusted-by-box i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0.5;
+}
+
+.trusted-stat {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.trusted-desc {
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+/* Плавающие иконки */
+.floating-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    z-index: 10;
+    color: white;
+    animation: float 4s ease-in-out infinite; /* Анимация парения */
+}
+
+.floating-icon.icon-1 { /* Зеленая шапка */
+    background-color: #60c5a0;
+    top: 0;
+    right: 15%;
+    animation-delay: 0s;
+}
+
+.floating-icon.icon-2 { /* Фиолетовый переводчик */
+    background-color: #9253ff;
+    top: 40%;
+    left: 0;
+    animation-delay: 1.5s;
+}
+
+.floating-icon.icon-3 { /* Флаг (имитация) */
+    background-color: #e66c6b;
+    top: 5%;
+    right: 5%;
+    width: 60px;
+    height: 40px;
+    border-radius: 5px;
+    animation-delay: 3s;
+}
+
+/* CSS-анимация парения */
+@keyframes float {
+    0% { transform: translate(0, 0px) rotate(0deg); }
+    50% { transform: translate(5px, 10px) rotate(1deg); }
+    100% { transform: translate(0, 0px) rotate(0deg); }
 }
 
 /* --- Медиа-запросы для адаптивности --- */
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 60px 0;
+@media (max-width: 992px) {
+    .navbar-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-layout {
+        grid-template-columns: 1fr; /* В одну колонку */
+        gap: 40px;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .button-group {
+        justify-content: center;
     }
     .main-heading {
-        font-size: 40px;
+        font-size: 50px;
+    }
+    .hero-image-block {
+        display: none; /* Скрываем графику на мобильных */
+    }
+}
+@media (max-width: 576px) {
+    .main-heading {
+        font-size: 38px;
     }
     .main-heading .sub-line {
-        font-size: 24px;
+        font-size: 20px;
     }
     .lead-text {
-        font-size: 20px;
+        font-size: 18px;
     }
     .button-group {
         flex-direction: column;
-        gap: 15px;
-        align-items: stretch;
-        max-width: 300px;
-        margin: 0 auto;
     }
 }
