@@ -28,65 +28,92 @@ body {
     overflow-x: hidden;
 }
 
+/* --- Градиентный фон по углам (как на изображении) --- */
+.hero-section::before,
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50vw;
+    height: 100vh; /* Покрывает всю высоту первого экрана */
+    z-index: -1;
+    border-radius: 0 0 50% 0;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Сверху слева - светло-зеленый */
+.hero-section::before {
+    left: 0;
+    background: radial-gradient(circle at 0% 0%, var(--color-light-secondary) 0%, transparent 40%);
+}
+
+/* Сверху справа - светло-акцентный */
+.hero-section::after {
+    right: 0;
+    background: radial-gradient(circle at 100% 0%, var(--color-light-accent) 0%, transparent 40%);
+    border-radius: 0 0 0 50%;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* --- НАВИГАЦИЯ --- */
+/* --- НАВИГАЦИЯ (Floating Card Style) --- */
 .navbar {
-    padding: 15px 0;
-    border-bottom: 1px solid var(--color-light-bg);
+    padding: 30px 0 15px 0;
 }
 
 .navbar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 30px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Легкая тень */
+    max-width: 1160px; /* Чуть шире контейнера */
+    margin: 0 auto;
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-primary);
-    font-family: 'Ubuntu', sans-serif;
+.logo-img {
+    height: 40px; /* Размер логотипа */
+    max-width: 100%;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--color-text);
-    opacity: 0.7;
-    margin-left: 30px;
+    opacity: 0.8;
+    margin-left: 25px;
     font-weight: 500;
-    transition: opacity 0.2s;
+    transition: color 0.2s;
 }
 
 .nav-links a:hover {
-    opacity: 1;
+    color: var(--color-primary);
 }
 
 .nav-cta {
-    background-color: var(--color-primary);
+    background-color: var(--color-accent); /* Акцентный цвет для кнопки в меню */
     color: white;
     padding: 10px 20px;
-    border-radius: var(--border-radius);
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.2s, transform 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    transition: background-color 0.2s;
 }
 
 .nav-cta:hover {
-    background-color: #4a7ddb;
-    transform: translateY(-1px);
+    background-color: #e65c5c;
 }
 
 /* --- HERO SECTION --- */
 .hero-section {
     padding: 80px 0 100px 0;
+    position: relative;
 }
 
 .hero-layout {
@@ -94,14 +121,14 @@ body {
     grid-template-columns: 1fr 1fr; /* Контент слева, Графика справа */
     gap: 50px;
     align-items: center;
-    text-align: left; /* Контент слева */
+    text-align: left;
 }
 
-/* HERO CONTENT (Левая колонка) */
+/* HERO CONTENT (Левая колонка) - Стили остаются спокойными */
 .pre-header {
     font-size: 14px;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-secondary); /* Используем зеленый для прехедера */
     text-transform: uppercase;
     margin-bottom: 15px;
     letter-spacing: 2px;
@@ -163,7 +190,7 @@ body {
 }
 
 .value-markers li i {
-    color: var(--color-primary);
+    color: var(--color-secondary); /* Используем зеленый для галочек */
     margin-right: 10px;
     font-size: 18px;
 }
@@ -197,7 +224,7 @@ body {
 
 .cta-button {
     padding: 14px 28px;
-    border-radius: var(--border-radius);
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
@@ -208,13 +235,13 @@ body {
 }
 
 .cta-button.primary {
-    background-color: var(--color-primary);
+    background-color: var(--color-accent); /* Основная кнопка - акцентный цвет */
     color: white;
 }
 
 .cta-button.primary:hover {
-    background-color: #4a7ddb;
-    box-shadow: 0 5px 15px rgba(83, 139, 255, 0.3);
+    background-color: #e65c5c;
+    box-shadow: 0 5px 15px rgba(255, 105, 106, 0.4);
 }
 
 .cta-button.secondary {
@@ -224,7 +251,7 @@ body {
 }
 
 .cta-button.secondary:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 /* --- HERO IMAGE BLOCK (Правая колонка с графикой) --- */
