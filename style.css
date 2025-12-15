@@ -1,0 +1,226 @@
+/* --- 1. Подключение шрифтов через @import --- */
+/* Montserrat для основного текста */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+/* Ubuntu для заголовков */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
+/* --- 2. Подключение Remix Icon (только CSS-файл) --- */
+@import url('https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css');
+
+/* --- CSS-переменные для легкой смены цветов --- */
+:root {
+    --color-primary: #538bff; /* Синий */
+    --color-accent: #ff696a; /* Красный акцент */
+    --color-text: #1A202C; /* Темный текст */
+    --color-light-bg: #f5f8fa; /* Очень светлый фон для кнопок */
+    --border-radius: 8px;
+}
+
+/* --- Общие сбросы и типографика --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Основной текст */
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 900px; /* Ограничение ширины контента */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    padding: 80px 0; /* Много воздуха */
+    text-align: center;
+}
+
+/* 1. Надзаголовок */
+.pre-header {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.7; /* Спокойный, не кричащий текст */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* 2. Главный заголовок (H1) */
+.main-heading {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.main-heading .sub-line {
+    display: block;
+    font-size: 28px;
+    font-weight: 400; /* Более легкий вес для подстроки */
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-primary);
+    margin-top: 15px;
+}
+
+/* 3. Подзаголовок (H2 / lead-текст) */
+.lead-text {
+    font-size: 24px;
+    font-weight: 300; /* Более легкий, чтобы "снять вину" */
+    line-height: 1.4;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.accent-phrase {
+    font-weight: 600;
+    color: var(--color-accent); /* Выделение акцентным цветом */
+    display: inline-block;
+    padding-bottom: 2px;
+    /* Базовый стиль для анимации */
+    transition: background-size 0.5s ease-out;
+    background-image: linear-gradient(to right, var(--color-accent), var(--color-accent));
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 0% 2px; /* Изначально линия невидима */
+}
+
+/* 4. Пояснение */
+.explanation-block p {
+    font-size: 18px;
+    margin: 15px auto;
+    max-width: 750px;
+}
+
+/* 5. Маркеры ценности */
+.value-markers {
+    list-style: none;
+    padding: 0;
+    margin: 40px auto;
+    max-width: 500px;
+    text-align: left;
+}
+
+.value-markers li {
+    font-size: 18px;
+    line-height: 2.5;
+    transition: opacity 0.5s ease;
+    /* Настройка для JS-анимации */
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Использование иконок Remix Icon */
+.value-markers li::before {
+    content: '\ea38'; /* Пример: иконка check-line (ее код) */
+    font-family: 'remixicon' !important; /* Указываем, что это шрифт иконок */
+    font-style: normal;
+    font-size: 18px;
+    color: var(--color-primary);
+    margin-right: 10px;
+}
+
+.value-markers li::before {
+    content: '\ea38'; 
+    font-family: 'remixicon' !important; 
+    font-style: normal;
+    font-size: 18px;
+    color: var(--color-primary);
+    margin-right: 10px;
+    display: inline-block;
+    width: 20px;
+}
+
+.key-value strong {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* 6. Цена + CTA */
+.cta-block {
+    margin-top: 50px;
+}
+
+.price {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.price-value {
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: var(--border-radius);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+/* Основная кнопка (Войти в клуб) */
+.cta-button.primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.cta-button.primary:hover {
+    background-color: #4a7ddb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(83, 139, 255, 0.4);
+}
+
+/* Вторичная кнопка (Посмотреть, как всё устроено) - не кричащая */
+.cta-button.secondary {
+    background-color: var(--color-light-bg);
+    color: var(--color-text);
+    border: 1px solid rgba(26, 32, 44, 0.1);
+}
+
+.cta-button.secondary:hover {
+    background-color: #e8ecf0;
+    transform: translateY(-1px);
+}
+
+/* --- Медиа-запросы для адаптивности --- */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+    .main-heading {
+        font-size: 40px;
+    }
+    .main-heading .sub-line {
+        font-size: 24px;
+    }
+    .lead-text {
+        font-size: 20px;
+    }
+    .button-group {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
