@@ -5,61 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Клуб Иврика – Иврит, в который можно войти спокойно</title>
     
+    <!-- Подключение Google Fonts и иконок -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
     
+    <!-- Подключение стилей -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="hero-section">
-        <div class="container">
-            
-            <p class="pre-header">
-                Для тех, кто учил иврит, но так и не начал говорить
-            </p>
-
-            <h1 class="main-heading">
-                Клуб Иврика
-                <span class="sub-line">Иврит, в который можно войти спокойно — и начать говорить</span>
-            </h1>
-
-            <h2 class="lead-text">
-                Если вы учили иврит, но речь так и не стала живой —
-                <span class="accent-phrase" id="accent-text">с вами всё в порядке.</span>
-            </h2>
-
-            <div class="explanation-block">
-                <p>Клуб Иврика — это не курс и не гонка.</p>
-                <p>
-                    Это среда, система и живой контакт, где иврит перестаёт быть
-                    источником напряжения и постепенно становится частью жизни.
-                </p>
+    <!-- Навигационная панель (по образцу) -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <i class="ri-book-2-line"></i> Клуб Иврика
             </div>
+            <div class="nav-links">
+                <a href="#about">О клубе</a>
+                <a href="#structure">Структура</a>
+                <a href="#price">Цена</a>
+                <a href="#contact">Контакт</a>
+            </div>
+            <a href="#link-to-payment" class="cta-button nav-cta">Войти в клуб <i class="ri-arrow-right-line"></i></a>
+        </div>
+    </nav>
 
-            <ul class="value-markers">
-                <li data-value="1">✔ Еженедельные эфиры со мной</li>
-                <li data-value="2">✔ Понятная и живая структура</li>
-                <li data-value="3" class="key-value">✔ Поддержка и регулярность — <strong>без давления</strong></li>
-            </ul>
-
-            <div class="cta-block">
-                <p class="price">
-                    Участие — <span class="price-value">от 99 ₪ в месяц</span>
+    <header class="hero-section">
+        <div class="container hero-layout">
+            
+            <!-- Блок контента (слева) -->
+            <div class="hero-content">
+                
+                <!-- 1. Верхняя строка (надзаголовок) -->
+                <p class="pre-header">
+                    Для тех, кто учил иврит, но так и не начал говорить
                 </p>
-                <div class="button-group">
-                    <a href="#link-to-payment" class="cta-button primary">
-                        🟢 Войти в клуб
-                    </a>
-                    <a href="#link-to-details" class="cta-button secondary">
-                        Посмотреть, как всё устроено
-                    </a>
+
+                <!-- 2. Главный заголовок (H1) -->
+                <h1 class="main-heading">
+                    Клуб Иврика
+                    <span class="sub-line">Иврит, в который можно войти спокойно — и начать говорить</span>
+                </h1>
+
+                <!-- 3. Подзаголовок (H2 / lead-текст) — снятие вины -->
+                <h2 class="lead-text" id="accent-text-h2">
+                    Если вы учили иврит, но речь так и не стала живой —
+                    <span class="accent-phrase">с вами всё в порядке.</span>
+                </h2>
+
+                <!-- 4. Пояснение: что это за формат (не курс!) -->
+                <div class="explanation-block">
+                    <p>Клуб Иврика — это не курс и не гонка. Это среда, система и живой контакт, где иврит перестаёт быть источником напряжения и постепенно становится частью жизни.</p>
+                </div>
+
+                <!-- 5. Маркеры ценности (3–4 пункта) - Используем иконки Remix -->
+                <ul class="value-markers">
+                    <li data-value="1"><i class="ri-check-line"></i> Еженедельные эфиры со мной</li>
+                    <li data-value="2"><i class="ri-check-line"></i> Понятная и живая структура</li>
+                    <li data-value="3" class="key-value"><i class="ri-check-line"></i> Поддержка и регулярность — <strong>без давления</strong></li>
+                </ul>
+
+                <!-- 6. Цена + CTA -->
+                <div class="cta-block">
+                    <p class="price">
+                        Участие — <span class="price-value">от 99 ₪ в месяц</span>
+                    </p>
+                    <div class="button-group">
+                        <a href="#link-to-payment" class="cta-button primary">
+                            Войти в клуб <i class="ri-arrow-right-line"></i>
+                        </a>
+                        <a href="#link-to-details" class="cta-button secondary">
+                            <i class="ri-play-line"></i> Посмотреть, как всё устроено
+                        </a>
+                    </div>
                 </div>
             </div>
+
+            <!-- Блок визуальной графики (справа) -->
+            <div class="hero-image-block">
+                <!-- Контур вокруг графики (имитация) -->
+                <div class="graphic-outline"></div>
+                
+                <!-- Имитация человека за компьютером (просто большая полупрозрачная фигура) -->
+                <div class="person-placeholder"></div>
+
+                <!-- Плавающие иконки (имитация) -->
+                <div class="floating-icon icon-1"><i class="ri-translate-2-line"></i></div>
+                <div class="floating-icon icon-2"><i class="ri-graduation-cap-line"></i></div>
+                <div class="floating-icon icon-3"><i class="ri-flag-2-line"></i></div>
+
+                <!-- Розовый блок "Доверие" (имитация) -->
+                <div class="trusted-by-box">
+                    <i class="ri-add-line"></i>
+                    <p class="trusted-stat">+50k</p>
+                    <p class="trusted-desc">Студентов по всему миру</p>
+                </div>
+            </div>
+
         </div>
     </header>
 
+    <!-- Подключение скриптов -->
     <script src="script.js"></script>
 </body>
 </html>
